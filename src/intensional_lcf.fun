@@ -8,10 +8,6 @@ struct
   structure Zipper = Zipper (RoseTree)
   type world = Zipper.location
 
-  datatype status =
-      EVIDENT
-    | UNKNOWN
-
   fun refine ((tree, path), tac) =
     let
       open RoseTree
