@@ -8,6 +8,5 @@ sig
       EVIDENT
     | UNKNOWN
 
-  val describe : world -> {status : status, goal : goal}
   val refine : world * tactic -> world
 end

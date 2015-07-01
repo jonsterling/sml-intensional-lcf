@@ -1,7 +1,9 @@
 Library
   signature INTENSIONAL_LCF
+  functor IntensionalLcf
 is
   $/basis.cm
   ../sml-lcf/lcf.cm
   ../sml-zipper/zipper.cm
   src/intensional_lcf.sig
+  src/intensional_lcf.fun
