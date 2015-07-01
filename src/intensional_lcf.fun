@@ -17,5 +17,18 @@ struct
     in
       (into (NODE ((goal, SOME tac), subtrees)), path)
     end
-end
 
+  exception IncompleteProofTree
+
+  local
+    structure Tacticals = Tacticals (Lcf)
+    open Tacticals RoseTree
+    infix THENL
+
+    fun go (NODE ((goal, NONE), _)) = raise IncompleteProofTree
+      | go (NODE ((goal, SOME tac), subtrees)) =
+        tac THENL List.map (go o out) subtrees
+  in
+    fun kreitz (tree, _) = go (out tree)
+  end
+end

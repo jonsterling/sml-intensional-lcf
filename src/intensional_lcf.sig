@@ -4,4 +4,5 @@ sig
 
   type world
   val refine : world * tactic -> world
+  val kreitz : world -> tactic
 end
