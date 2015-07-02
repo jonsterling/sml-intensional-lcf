@@ -19,4 +19,6 @@ struct
 
   fun refine (session, tac) =
     session := (IntensionalLcf.refine (! session, tac))
+
+  val compile = IntensionalLcf.kreitz o !
 end

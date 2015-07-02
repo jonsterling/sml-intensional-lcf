@@ -13,4 +13,5 @@ sig
   val down : session -> unit
 
   val refine : session * tactic -> unit
+  val compile : session -> tactic
 end
