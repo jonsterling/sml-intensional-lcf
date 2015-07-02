@@ -8,17 +8,17 @@ end =
 struct
   open Lcf
 
-  structure RoseTree = RoseTree
+  structure Fan = Fan
     (type elem = Lcf.goal * tactic option)
 
-  structure Zipper = Zipper (RoseTree)
+  structure Zipper = FanZipper (Fan)
   type world = Zipper.location
 
-  fun init goal = Zipper.init (RoseTree.into (RoseTree.NODE ((goal, NONE), [])))
+  fun init goal = Zipper.init (Fan.into (Fan.NODE ((goal, NONE), [])))
 
   fun refine ((tree, path), tac) =
     let
-      open RoseTree
+      open Fan
       val NODE ((goal, _), _) = out tree
       val (subgoals, _) = tac goal
       val subtrees = List.map (fn gl => into (NODE ((gl, NONE), []))) subgoals
@@ -30,7 +30,7 @@ struct
 
   local
     structure Tacticals = Tacticals (Lcf)
-    open Tacticals RoseTree
+    open Tacticals Fan
     infix THENL
 
     fun go (NODE ((goal, NONE), _)) = raise IncompleteProofTree
