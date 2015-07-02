@@ -1,4 +1,9 @@
-functor IntensionalLcf (Lcf : LCF) : INTENSIONAL_LCF =
+functor IntensionalLcf (Lcf : LCF) :
+sig
+  structure Zipper : ZIPPER
+  include INTENSIONAL_LCF
+    where type world = Zipper.location
+end =
 struct
   open Lcf
 
@@ -7,6 +12,8 @@ struct
 
   structure Zipper = Zipper (RoseTree)
   type world = Zipper.location
+
+  fun init goal = Zipper.init (RoseTree.into (RoseTree.NODE ((goal, NONE), [])))
 
   fun refine ((tree, path), tac) =
     let

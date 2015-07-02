@@ -1,9 +1,13 @@
 Library
   signature INTENSIONAL_LCF
   functor IntensionalLcf
+  signature EPHEMERAL_LCF
+  functor EphemeralLcf
 is
   $/basis.cm
   ../sml-lcf/lcf.cm
   ../sml-zipper/zipper.cm
   src/intensional_lcf.sig
   src/intensional_lcf.fun
+  src/ephemeral_lcf.sig
+  src/ephemeral_lcf.fun
