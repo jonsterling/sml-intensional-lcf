@@ -3,6 +3,7 @@ sig
   structure Zipper : ZIPPER
   include INTENSIONAL_LCF
     where type world = Zipper.location
+  val kreitz : world -> tactic
 end =
 struct
   open Lcf
