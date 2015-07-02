@@ -1,4 +1,4 @@
-functor EphemeralLcf (Lcf : LCF) : EPHEMERAL_LCF =
+functor EphemeralLcf (Lcf : LCF) :> EPHEMERAL_LCF =
 struct
   open Lcf
   structure IntensionalLcf = IntensionalLcf (Lcf)
