@@ -5,9 +5,9 @@ Library
   functor EphemeralLcf
 is
   $/basis.cm
-  ../sml-spreads/spreads.cm
-  ../sml-lcf/lcf.cm
-  ../sml-zipper/zipper.cm
+  $libs/sml-spreads/spreads.cm
+  $libs/sml-lcf/lcf.cm
+  $libs/sml-zipper/zipper.cm
   src/intensional_lcf.sig
   src/intensional_lcf.fun
   src/ephemeral_lcf.sig

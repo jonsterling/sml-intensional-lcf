@@ -1,0 +1,7 @@
+Library
+  signature INTENSIONAL_LCF
+  functor IntensionalLcf
+  signature EPHEMERAL_LCF
+  functor EphemeralLcf
+is
+  intensional-lcf.cm (bind:(anchor:libs value:lib))
